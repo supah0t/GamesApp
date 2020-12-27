@@ -1,6 +1,5 @@
 from rest_framework import viewsets
 
-
 from games.models import PlayerScore
 from .serializers import PlayerScoreSerializer
 
