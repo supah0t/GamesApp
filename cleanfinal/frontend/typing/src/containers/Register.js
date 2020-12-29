@@ -8,6 +8,8 @@ import { NavLink } from 'react-router-dom';
 
 import * as actions from '../store/actions/auth';
 
+import './containers.css';
+
 class SignupForm extends React.Component {
 
   handleFormSubmit = (event) => {
@@ -18,7 +20,7 @@ class SignupForm extends React.Component {
     const email = event.target.elements.email.value;
 
     if (password1 === password2) {
-      this.props.onAuth(username, password1, password2);
+      this.props.onAuth(username, password1, password2, email);
       this.props.history.push('/');
     }
   }
@@ -33,7 +35,7 @@ class SignupForm extends React.Component {
     }
 
     return (
-      <div>
+      <div className="submit-form">
         {errorMessage}
         {
           this.props.loading ?
@@ -45,23 +47,30 @@ class SignupForm extends React.Component {
                 <Form.Label>Username</Form.Label>
                 <Form.Control name="username" type="username" placeholder="Enter Username" />
               </Form.Group>
+              
+              <div className="gap-20"></div>
 
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control name="email" type="email" placeholder="Enter email" />
               </Form.Group>
 
+              <div className="gap-20"></div>
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
                 <Form.Control name="password1" type="password" placeholder="Password" />
               </Form.Group>
+              
+              <div className="gap-20"></div>
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Confirm Password</Form.Label>
                 <Form.Control name="password2" type="password" placeholder="Confirm Password" />
               </Form.Group>
 
+              <div className="gap-20"></div>
+              
               <Button variant="primary" type="submit">
                 Signup
               </Button>

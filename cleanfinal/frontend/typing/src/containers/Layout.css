@@ -1,0 +1,50 @@
+html {
+    margin: 5px;
+    height: 100%;
+}
+
+html *{
+    color: white;
+    background-color: #343a40;
+}
+
+.top-gap {
+    margin-top: 5%;
+}
+
+.gap-20 {
+    padding-top: 20px;
+}
+
+#app-container {
+    width: 50%;
+    margin: auto;
+    border: solid 2px;
+    border-radius: 5px;
+    padding-bottom: 10px;
+    height: 70vh;
+}
+
+#menu-divider {
+    background-color: white;
+    height: 2px;
+}
+
+#intro-text {
+    text-align: center;
+    height: 100%;
+}
+
+#score-table {
+    height: 100%;
+    position: absolute;
+}
+
+#scores-container {
+    display: flex;
+    flex-flow: column;
+}
+
+#menu-bar *{
+    margin: auto;
+}

@@ -5,7 +5,7 @@ from .serializers import PlayerScoreSerializer
 
 class PlayerScoreViewSet(viewsets.ModelViewSet):
     serializer_class = PlayerScoreSerializer
-    queryset = PlayerScore.objects.all()
+    queryset = PlayerScore.objects.all().order_by('-score')
 
 #from rest_framework.generics import (
 #    ListAPIView,

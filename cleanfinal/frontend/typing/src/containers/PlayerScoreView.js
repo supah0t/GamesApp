@@ -1,8 +1,6 @@
 import React from 'react';
 import Player from '../components/Player';
 import axios from 'axios';
-import CustomForm from '../components/Form';
-
 
 class PlayerScore extends React.Component {
   state = {
@@ -23,10 +21,6 @@ class PlayerScore extends React.Component {
     return (
       <div>
         <Player data={this.state.players}/>
-        <CustomForm 
-          requestMethod="post"
-          playerScoreID={null}
-          btnText="Create" />
       </div>
     );
   }

@@ -6,31 +6,40 @@ import { Link, withRouter } from 'react-router-dom';
 
 import * as actions from '../store/actions/auth';
 
+import './Layout.css'
+
 class CustomLayout extends React.Component {
   
   render() {
     return (
       <div>
-        <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link><Link to="/">Home</Link></Nav.Link>
+        
+        <div className="top-gap">
+          <div id="app-container">
+            <div id="menu-bar">
+              <Navbar bg="dark" variant="dark" expand="sm">
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                  <Nav className="mr-auto">
+                    <Nav.Link><Link to="/">Home</Link></Nav.Link>
+                    <Nav.Link><Link to="/typing">Typing Game</Link></Nav.Link>
+                    {
+                      this.props.isAuthenticated ?
+                        <Nav.Link onClick={this.props.logout}>Logout</Nav.Link>
+                        :
+                        <Nav.Link><Link to="/login">Login</Link></Nav.Link>
+                    }
+                  </Nav>
+                </Navbar.Collapse>
+              </Navbar>
+            </div>
 
-              {
-                this.props.isAuthenticated ?
-                  <Nav.Link onClick={ this.props.logout }>Logout</Nav.Link>
-                  :
-                  <Nav.Link><Link to="/login">Login</Link></Nav.Link>
-              }
+            <hr id="menu-divider" />
 
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-
-        {this.props.children}
-
+            {this.props.children}
+          </div>
+        </div>
+        
       </div>
     );
   }

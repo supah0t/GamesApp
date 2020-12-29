@@ -34,7 +34,7 @@ class PlayerDetailView extends React.Component {
           playerScoreID={this.props.match.params.playerID} 
           btnText="Update"/>
         <form onSubmit={this.handleDelete}>
-          <Button className="test" variant="danger" type="submit">Delete</Button>
+          <Button variant="danger" type="submit">Delete</Button>
         </form>
       </div>
     );
