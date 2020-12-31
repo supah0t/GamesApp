@@ -24,6 +24,7 @@ class GameArea extends React.Component {
     this.setState({
       phase: 1
     });
+    alert("This is a beta version, some breaking bugs might occur during the game, in that case just refresh and play again :)");
   }
   
   render() {

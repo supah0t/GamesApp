@@ -22,6 +22,11 @@ html *{
 
 .nav-button {
     font-size: large;
+    padding: 5px;
+}
+
+.nav-button:hover {
+    border-top: 2px solid;
 }
 
 #app-container {
@@ -37,6 +42,7 @@ html *{
 #menu-divider {
     background-color: white;
     height: 2px;
+    margin-top: 0;
 }
 
 #intro-text {

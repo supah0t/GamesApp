@@ -31,8 +31,11 @@ function LoginForm(props) {
       const username = event.target.elements.username.value;
       const password = event.target.elements.password.value;
       props.onAuth(username, password);
-      props.history.push('/');
     }
+  }
+  
+  if (props.isAuthenticated) {
+    props.history.push('/');
   }
   
   let errorMessage = null;
@@ -93,7 +96,8 @@ function LoginForm(props) {
 const mapStateToProps = (state) => {
   return {
     loading: state.loading,
-    error: state.error
+    error: state.error,
+    isAuthenticated: state.token !== null
   }
 }
 

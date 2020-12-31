@@ -21,7 +21,7 @@ class CustomLayout extends React.Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="mr-auto">
-                    <Nav.Link><Link to="/"><span className="nav-button">Home</span></Link></Nav.Link>
+                    <Nav.Link><Link to="/"><span className="nav-button">Leaderboard</span></Link></Nav.Link>
                     <Nav.Link><Link to="/typing"><span className="nav-button">Typing Game</span></Link></Nav.Link>
                     {
                       this.props.isAuthenticated ?

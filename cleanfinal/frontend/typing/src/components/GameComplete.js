@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 import  { connect } from 'react-redux';
 
 import Button from 'react-bootstrap/Button';
+
 
 class Score extends React.Component {
   
@@ -16,13 +16,21 @@ class Score extends React.Component {
     return (Math.round(words / totalTime * 100) / 100).toFixed(2);
   }
   
-  testFunct = () => {
+  PostResults = () => {
+    let score = this.CalculateWPM(this.props);
+    let user = this.props.user;
     return axios.post('http://127.0.0.1:8000/api/', {
-      score: 50,
-      user: JSON.stringify(this.props.user)
+      score: score,
+      user: user
     })
-    .then(res => console.log(res))
-    .catch(err => console.error(err));
+    .then(res => {
+      console.log(res);
+      this.props.history.push('/');
+    })
+    .catch(err => {
+      console.error(err);
+      alert("Something went wrong, sorry");
+    });
   }
 
   render() {
@@ -40,12 +48,10 @@ class Score extends React.Component {
             :
             <div>
               <p>Post your results to the leaderboards</p>
-              <Button onClick={this.testFunct}>Post</Button>
+              <Button onClick={this.PostResults}>Post</Button>
             </div>
         }
         <p></p>
-
-        <Button onClick={() => console.log(this.props)}>Test</Button>
 
       </div>
     );

@@ -12,6 +12,12 @@ import './containers.css';
 
 class SignupForm extends React.Component {
 
+  redirect = () => {
+    if (this.props.isAuthenticated) {
+      this.props.history.push('/');
+    }
+  }
+  
   handleFormSubmit = (event) => {
     event.preventDefault();
     const username = event.target.elements.username.value;
@@ -21,9 +27,10 @@ class SignupForm extends React.Component {
 
     if (password1 === password2) {
       this.props.onAuth(username, password1, password2, email);
-      this.props.history.push('/');
+      this.redirect();
     }
   }
+
 
   render() {
 
@@ -86,13 +93,14 @@ class SignupForm extends React.Component {
 const mapStateToProps = (state) => {
   return {
     loading: state.loading,
-    error: state.error
+    error: state.error,
+    isAuthenticated: state.token !== null
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAuth: (username, password1, password2) => dispatch(actions.authSignup(username, password1, password2))
+    onAuth: (username, password1, password2, email) => dispatch(actions.authSignup(username, password1, password2, email))
   }
 }
 

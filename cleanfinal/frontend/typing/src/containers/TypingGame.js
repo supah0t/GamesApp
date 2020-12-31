@@ -8,7 +8,7 @@ import Spinner from 'react-bootstrap/Spinner';
 
 import Score from '../components/GameComplete';
 
-import VirtualKeyboard from '../components/VirtualKeyboard';
+import CountUp from 'react-countup';
 
 
 class TypingGame extends React.Component {
@@ -147,7 +147,7 @@ class TypingGame extends React.Component {
 
             : <div id="text-area">
                 {this.state.displayText.map((text, index) =>
-                <span>
+                <span key={index}>
                   <span id={"text" + index} 
                     className={this.state.wordCounter === index ? "highlight-text" : ""}
                   > 
@@ -164,16 +164,25 @@ class TypingGame extends React.Component {
         <Form.Control disabled={(this.state.complete) ? "disabled" : ""} onKeyPress={this.nextWord} 
         onChange={this.updateResponse}
         value={this.state.input} 
-        id="game-form" className="form"/>
+        id="game-form" className="form"
+        placeholder={this.state.displayText[this.state.wordCounter]}/>
 
         <div className="gap-20"></div>
-
-        {/* <VirtualKeyboard /> */}
+        
         {
           this.state.startTime === 0 ?
             <div id="instructions-text">Start typing to begin the test</div>
           :
-            <div></div>
+            this.state.endTime === 0
+              ? <CountUp
+                  start={0}
+                  end={1000}
+                  duration={1000}
+                  decimals={2}
+                  useEasing={false}
+                />
+              :
+                <div></div>
         }
         
         {
