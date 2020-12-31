@@ -3,6 +3,10 @@ html {
     height: 100%;
 }
 
+body {
+    overflow-y: hidden;
+}
+
 html *{
     color: white;
     background-color: #343a40;
@@ -16,13 +20,18 @@ html *{
     padding-top: 20px;
 }
 
+.nav-button {
+    font-size: large;
+}
+
 #app-container {
     width: 50%;
     margin: auto;
     border: solid 2px;
     border-radius: 5px;
     padding-bottom: 10px;
-    height: 70vh;
+    min-height: 60vh;
+    min-width: 800px;
 }
 
 #menu-divider {

@@ -19,21 +19,17 @@ class PlayerScoreViewSet(viewsets.ModelViewSet):
 #     queryset = PlayerScore.objects.all()
 #     serializer_class = PlayerScoreSerializer
 
-
 # class PlayerScoreDetailView(RetrieveAPIView):
 #     queryset = PlayerScore.objects.all()
 #     serializer_class = PlayerScoreSerializer
-
 
 # class PlayerScoreCreateView(CreateAPIView):
 #     queryset = PlayerScore.objects.all()
 #     serializer_class = PlayerScoreSerializer
 
-
 # class PlayerScoreUpdateView(UpdateAPIView):
 #     queryset = PlayerScore.objects.all()
 #     serializer_class = PlayerScoreSerializer
-
 
 # class PlayerScoreDeleteView(DestroyAPIView):
 #     queryset = PlayerScore.objects.all()

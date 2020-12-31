@@ -21,13 +21,13 @@ class CustomLayout extends React.Component {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="mr-auto">
-                    <Nav.Link><Link to="/">Home</Link></Nav.Link>
-                    <Nav.Link><Link to="/typing">Typing Game</Link></Nav.Link>
+                    <Nav.Link><Link to="/"><span className="nav-button">Home</span></Link></Nav.Link>
+                    <Nav.Link><Link to="/typing"><span className="nav-button">Typing Game</span></Link></Nav.Link>
                     {
                       this.props.isAuthenticated ?
-                        <Nav.Link onClick={this.props.logout}>Logout</Nav.Link>
+                        <Nav.Link onClick={this.props.logout}><span className="nav-button">Logout</span></Nav.Link>
                         :
-                        <Nav.Link><Link to="/login">Login</Link></Nav.Link>
+                        <Nav.Link><Link to="/login"><span className="nav-button">Login</span></Link></Nav.Link>
                     }
                   </Nav>
                 </Navbar.Collapse>

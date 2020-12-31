@@ -5,7 +5,10 @@ const Player = (props) => {
   return (
     <ul>
       {props.data.map((item) =>
-        <li key={item.index} ><Link to={`/players/${item.id}`}>Score: {item.score}</Link></li>
+      <div>
+          <li key={item.index} ><span className="username">{item.user}: </span>{item.score} wpm</li>
+        <div className="gap-20"></div>  
+      </div>
       )}
     </ul>
   );

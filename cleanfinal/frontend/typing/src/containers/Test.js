@@ -1,54 +1,62 @@
-import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-
-import { connect } from 'react-redux';
-
-import * as actions from '../store/actions/auth';
+import React from 'react';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 import './containers.css';
+import './test.css';
 
 function FormExample() {
-  const [validated, setValidated] = useState(false);
-
-  const handleSubmit = (event) => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    setValidated(true);
-  };
 
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit}>
-        <Form.Group md="4" controlId="validationCustom01">
-          <Form.Label>First name</Form.Label>
-          <Form.Control
-            required
-            type="text"
-            placeholder="First name"
-            defaultValue="Mark"
-          />
-          <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-      <Button type="submit">Submit form</Button>
-    </Form>
+    <Popup
+      trigger={<button className="button"> Open Modal </button>}
+      modal
+      nested
+    >
+      {close => (
+        <div className="modal">
+          <button className="close" onClick={close}>
+            &times;
+        </button>
+          <div className="header"> Modal Title </div>
+          <div className="content">
+            {' '}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a nostrum.
+          Dolorem, repellat quidem ut, minima sint vel eveniet quibusdam voluptates
+          delectus doloremque, explicabo tempore dicta adipisci fugit amet dignissimos?
+          <br />
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur sit
+          commodi beatae optio voluptatum sed eius cumque, delectus saepe repudiandae
+          explicabo nemo nam libero ad, doloribus, voluptas rem alias. Vitae?
+        </div>
+          <div className="actions">
+            <Popup
+              trigger={<button className="button"> Trigger </button>}
+              position="top center"
+              nested
+            >
+              <span>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
+                magni omnis delectus nemo, maxime molestiae dolorem numquam
+                mollitia, voluptate ea, accusamus excepturi deleniti ratione
+                sapiente! Laudantium, aperiam doloribus. Odit, aut.
+            </span>
+            </Popup>
+            <button
+              className="button"
+              onClick={() => {
+                console.log('modal closed ');
+                close();
+              }}
+            >
+              close modal
+          </button>
+          </div>
+        </div>
+      )}
+    </Popup>
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    loading: state.loading,
-    error: state.error
-  }
-}
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onAuth: (username, password) => dispatch(actions.authLogin(username, password))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(FormExample);
+export default FormExample;

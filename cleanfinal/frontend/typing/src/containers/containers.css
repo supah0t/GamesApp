@@ -3,8 +3,13 @@
     margin: auto;
 }
 
+.submit-form *{
+    color: white;
+}
+
 .typing-test {
     margin: 10px;
+    font-size: x-large;
 }
 
 .test-words {
@@ -13,4 +18,35 @@
 
 .form {
     width: 30%;
+}
+
+#game-form {
+    border: 0;
+    border-radius: 0 5px 0 0;
+    border-bottom: 2px solid rgb(145, 145, 145);
+    border-left: 2px solid rgb(145, 145, 145);
+    color: white;
+}
+
+input, textarea{
+    background-color:#1e2226 !important;
+}
+
+.form-control:focus {
+    border-color: white;  
+    box-shadow: none; 
+    -webkit-box-shadow: none;
+} 
+
+.highlight-text {
+    background-color: #1D7CDB;
+    border-radius: 5px;
+}
+
+#play-button {
+    margin: 10px;
+}
+
+#instructions-text {
+    font-size: medium;
 }

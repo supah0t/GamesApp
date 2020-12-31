@@ -1,0 +1,22 @@
+#start-text {
+    font-size: x-large;
+    margin: 10px;
+}
+
+#reference {
+    float: right;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+#end-game-text {
+    text-align: center;
+}
+
+#scores-container *{
+    font-size: x-large;
+}
+
+.username {
+    margin-right: 120px;
+}
